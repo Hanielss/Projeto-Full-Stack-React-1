@@ -12,7 +12,7 @@
 
 
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 
 import People from './assets/people.svg'
@@ -27,13 +27,14 @@ const App = () => {
 
 
   const [users, setUsers] = useState([]);
-  
-  
+
+
   const inputName = useRef()
   const inputAge = useRef()
 
 
   const addNewUser = async () => {
+
 
     const { data: newUser } = await axios.post('http://localhost:3001/users', {
 
@@ -47,6 +48,30 @@ const App = () => {
     setUsers([...users, newUser]);
 
   }
+
+  useEffect(() => {
+
+    async function fetchUsers() {
+
+      const { data: newUser } = await axios.get("http://localhost:3001/users");
+
+      setUsers(newUser);
+
+    }
+
+    fetchUsers()
+
+
+  }, [],)
+
+  // REACT HOOK => useEffect é utilizado quando minha aplicação inicia (quando a página carrega)
+  // Também é chamado quando um estado que está no array de dependencia do useEffect é alterado
+
+
+
+
+
+
 
 
   const deleteUser = (userId) => {
