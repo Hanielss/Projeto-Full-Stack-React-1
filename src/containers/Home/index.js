@@ -12,29 +12,25 @@
 
 
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, } from 'react';
 import axios from 'axios';
 
 import People from '../../assets/people.svg'
 import Arrow from '../../assets/arrow.svg'
-import Trash from '../../assets/trash.svg'
 
 
-import { Container, H1, Image, ContainerItens, InputLabel, Input, Button, User } from "./styles";
+
+import { Container, H1, Image, ContainerItens, InputLabel, Input, Button, } from "./styles";
 
 
 const App = () => {
 
-
   const [users, setUsers] = useState([]);
-
-
   const inputName = useRef()
   const inputAge = useRef()
 
 
   const addNewUser = async () => {
-
 
     const { data: newUser } = await axios.post('http://localhost:3001/users', {
 
@@ -43,41 +39,10 @@ const App = () => {
 
     });
 
-    console.log(newUser)
-
     setUsers([...users, newUser]);
 
   }
 
-  useEffect(() => {
-
-    async function fetchUsers() {
-
-      const { data: newUser } = await axios.get("http://localhost:3001/users");
-
-      setUsers(newUser);
-
-    }
-
-    fetchUsers()
-
-
-  }, [],)
-
-  // REACT HOOK => useEffect é utilizado quando minha aplicação inicia (quando a página carrega)
-  // Também é chamado quando um estado que está no array de dependencia do useEffect é alterado
-
-
-
-
-  const deleteUser = async (userId) => {
-    await axios.delete(`http://localhost:3001/users/${userId}`)
-
-    const newUsers = users.filter(user => user.id !== userId)
-
-    setUsers(newUsers)
-
-  }
 
   return (
 
@@ -97,23 +62,9 @@ const App = () => {
 
         <Button onClick={addNewUser}>Cadastrar <img alt="seta" src={Arrow} /></Button>
 
-        <ul>
+        </ContainerItens>
 
-          {users.map((user) => (
-
-            <User key={user.id}>
-              <p>{user.name}</p> <p>{user.age}</p>
-              <button onClick={() => deleteUser(user.id)} ><img src={Trash} alt="lata-de-lixo"></img></button>
-
-            </User>
-
-          ))}
-
-        </ul>
-
-      </ContainerItens>
-
-    </Container>
+  </Container>
 
   );
 

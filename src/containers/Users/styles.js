@@ -5,7 +5,7 @@
 
 import styled from "styled-components";
 
-import Background from '../../assets/background1.svg'
+import Background from '../../assets/background.svg'
 
 
 export const Container = styled.div`    
@@ -36,10 +36,12 @@ background: linear-gradient(
      rgba(255, 255, 255, 0.6) 0.85%, 
      rgba(255, 255, 255, 0.15) 100%);      
      border-radius: 61px 61px 0px 0px;
+     backdrop-filter: blur(45px);
       padding: 50px 36px;
       display: flex;
       flex-direction: column;
       height: 100vh;
+      
 
 `;
 
@@ -58,42 +60,8 @@ font-style: normal;
 `;
 
 
-export const InputLabel = styled.p`
-
-font-size: 18px;
-font-weight: bold;
-line-height: 22px;
-letter-spacing: -0.408px;
-text-align: left;
-color: #eeeeee;
-font-style: normal;
-margin-left: 25px;
-
-
-`;
-
-export const Input = styled.input`
-box-shadow: 0px 4px 4px 0px #00000040;
-background: #FFFFFF40;
-border-radius: 14px;
-border: none;
-width: 342px;
-height: 58px;
-outline: none;
-padding-left: 25px;
-margin-bottom: 34px;
-font-size: 20px;
-font-weight: normal;
-font-style: normal;
-line-height: 28px;
-color: #FFFFFF;
-
-
-`;
-
 export const Button = styled.button`
-margin-top: 115px;
-background: #000000CC;
+background: transparent;
 color: #FFFFFF;
 width: 342px;
 height: 74px;
@@ -102,13 +70,15 @@ font-size: 17px;
 font-weight: 700;
 line-height: 28px;
 letter-spacing: 0px;
-border: none;
+border: 1px solid;
 outline: none;
 cursor: pointer;
 display: flex;
 align-items: center;
 justify-content: center;
 gap: 10px;
+margin-top: 125px;
+
 
 &:hover {
     opacity: 0.8;
@@ -117,11 +87,49 @@ gap: 10px;
     opacity: 0.5;
 }
 
+img {
+    transform: rotateY(180deg);
+}
+
 `;
 
+export const User = styled.li `
+
+box-shadow: 0px 4px 4px 0px #00000040;
+background: #FFFFFF40;
+border-radius: 14px;
+border: none;
+width: 342px;
+height: 58px;
+outline: none;
+margin-top: 20px;
+display: flex;
+justify-content: space-around;
+align-items: center;
+
+Button {
+    background:none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+    opacity: 0.8;
+}
+&:active {
+    opacity: 0.5;
+}
+    
+}
+
+P {
+    color: #FFFFFf;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0px;
+}
 
 
-
-
+`
 
 
