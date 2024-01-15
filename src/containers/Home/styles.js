@@ -15,7 +15,8 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 44px; 
-    height: 130vh;
+    height: 100%;
+    min-height: 100vh;
 
 `;
 
@@ -28,34 +29,8 @@ margin-top: 30px;
 
 `;
 
-export const ContainerItens = styled.div`
-
-background: linear-gradient(
-    157.44deg,
-     rgba(255, 255, 255, 0.6) 0.84%,
-     rgba(255, 255, 255, 0.6) 0.85%, 
-     rgba(255, 255, 255, 0.15) 100%);      
-     border-radius: 61px 61px 0px 0px;
-      padding: 50px 36px;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-
-`;
 
 
-export const H1 = styled.h1`
-
-color: #ffffff;
-font-size: 34px;
-font-weight: 700;
-line-height: 40px;
-letter-spacing: 0px;
-text-align: center;
-font-style: normal;
-
-
-`;
 
 
 export const InputLabel = styled.p`
@@ -88,34 +63,6 @@ font-style: normal;
 line-height: 28px;
 color: #FFFFFF;
 
-
-`;
-
-export const Button = styled.button`
-margin-top: 115px;
-background: #000000CC;
-color: #FFFFFF;
-width: 342px;
-height: 74px;
-border-radius: 14px;
-font-size: 17px;
-font-weight: 700;
-line-height: 28px;
-letter-spacing: 0px;
-border: none;
-outline: none;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 10px;
-
-&:hover {
-    opacity: 0.8;
-}
-&:active {
-    opacity: 0.5;
-}
 
 `;
 

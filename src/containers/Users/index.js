@@ -13,21 +13,26 @@
 
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import axios from 'axios';
 
 import Avatar from '../../assets/avatar.svg'
 import Arrow from '../../assets/arrow.svg'
 import Trash from '../../assets/trash.svg'
+import H1 from '../../components/title'
+import ContainerItens from '../../components/ContainerItens'
+import Button from '../../components/Button'
 
 
-import { Container, H1, Image, ContainerItens, Button, User } from "./styles";
+import { Container, Image, User } from "./styles";
 
 
 const Users = () => {
 
 
   const [users, setUsers] = useState([]);
-
+  const navigate = useNavigate();
 
   useEffect(() => {
 
@@ -36,7 +41,7 @@ const Users = () => {
       const { data: newUser } = await axios.get("http://localhost:3001/users");
 
       setUsers(newUser);
-      
+
     }
 
     fetchUsers()
@@ -58,13 +63,19 @@ const Users = () => {
 
   }
 
+  const goBackPage = () => {
+
+    navigate('/')
+
+  }
+
   return (
 
     <Container>
 
       <Image alt="logo-imagem" src={Avatar} />
 
-      <ContainerItens>
+      <ContainerItens isBlur={true}>
 
         <H1>Usuários</H1>
 
@@ -83,7 +94,7 @@ const Users = () => {
 
         </ul>
 
-        <Button>
+        <Button isBack={true} onClick={goBackPage}>
           <img alt="seta" src={Arrow} /> Voltar
         </Button>
 
@@ -94,7 +105,7 @@ const Users = () => {
 
   );
 
- 
+
 }
 
 export default Users;
